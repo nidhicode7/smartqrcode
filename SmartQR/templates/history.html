@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code History</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📜 QR Code History</h1>
+        <a href="/">← Back to Generator</a><br><br>
+
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>Data</th>
+                <th>QR Image</th>
+                <th>Generated At</th>
+            </tr>
+            {% for qr in qrs %}
+            <tr>
+                <td>{{ qr.user_input }}</td>
+                <td><img src="{{ url_for('static', filename=qr.qr_filename) }}" width="100"></td>
+                <td>{{ qr.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

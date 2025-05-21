@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartQR - Generate QR</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔳 SmartQR</h1>
+        <form method="POST">
+            <input type="text" name="data" placeholder="Enter URL / phone / email / text" required><br><br>
+            <button type="submit">Generate QR Code</button>
+        </form>
+
+        {% if qr_image %}
+        <h3>Here is your QR Code:</h3>
+        <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code" width="200">
+    {% endif %}
+    
+    </div>
+</body>
+</html>
